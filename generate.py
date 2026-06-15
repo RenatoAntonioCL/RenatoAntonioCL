@@ -65,10 +65,15 @@ def fetch_all_repos(session: requests.Session) -> list[dict]:
     return repos
 
 
-def fetch_languages(session: requests.Session, repos: list[dict]) -> dict[str, int]:
+def fetch_languages(
+    session: requests.Session,
+    repos: list[dict],
+    exclude: list[str] | None = None,
+) -> dict[str, int]:
+    excluded = set(exclude or [])
     totals: dict[str, int] = {}
     for repo in repos:
-        if repo.get("fork"):
+        if repo.get("fork") or repo["name"] in excluded:
             continue
         resp = session.get(
             f"https://api.github.com/repos/{GITHUB_USERNAME}/{repo['name']}/languages",
@@ -219,7 +224,8 @@ def main() -> None:
         repos = fetch_all_repos(session)
         print(f"  Found {len(repos)} public repos")
         print("Fetching language stats...")
-        lang_totals = fetch_languages(session, repos)
+        exclude = config.get("exclude_from_stats", [])
+        lang_totals = fetch_languages(session, repos, exclude)
     except requests.HTTPError as exc:
         print(f"GitHub API error: {exc}", file=sys.stderr)
         lang_totals = {}

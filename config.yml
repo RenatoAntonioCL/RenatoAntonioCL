@@ -29,6 +29,9 @@ stack:
   devops: ["GitHub Actions", "CI/CD", "Railway", "Linux", "Bash"]
   tools: ["Git", "Claude Code", "REST APIs"]
 
+exclude_from_stats:
+  - "lavaexpert"
+
 how_i_work:
   - "PR-based workflow — no direct pushes to main, ever"
   - "Every project ships with CI/CD from day one"
