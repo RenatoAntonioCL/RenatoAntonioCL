@@ -47,13 +47,13 @@ def gh_session() -> requests.Session:
     return session
 
 
-def fetch_public_repos(session: requests.Session) -> list[dict]:
+def fetch_all_repos(session: requests.Session) -> list[dict]:
     repos = []
     page = 1
     while True:
         resp = session.get(
-            f"https://api.github.com/users/{GITHUB_USERNAME}/repos",
-            params={"per_page": 100, "page": page, "type": "public"},
+            "https://api.github.com/user/repos",
+            params={"per_page": 100, "page": page, "type": "all"},
             timeout=15,
         )
         resp.raise_for_status()
@@ -214,9 +214,9 @@ def main() -> None:
 
     session = gh_session()
 
-    print("Fetching public repos...")
+    print("Fetching all repos...")
     try:
-        repos = fetch_public_repos(session)
+        repos = fetch_all_repos(session)
         print(f"  Found {len(repos)} public repos")
         print("Fetching language stats...")
         lang_totals = fetch_languages(session, repos)
