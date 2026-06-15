@@ -1,4 +1,4 @@
-# Hey, I'm Renato 👋
+# Hey, I'm Renato 
 
 I build software that solves real problems.
 
