@@ -1,0 +1,36 @@
+bio:
+  name: "Renato Antonio Cárdenas López"
+  title: "Software Engineer · Founder of QRFila · Builder of GenPy"
+  location: "Santiago, Chile"
+  tagline: "I build software that solves real problems."
+  description: |
+    Self-taught developer focused on product, backend and infrastructure.
+    I work with AI as a velocity multiplier, not a shortcut.
+    Currently building QRFila and open to my first engineering role.
+
+links:
+  linkedin: "https://linkedin.com/in/renatoantoniocl"
+  genpy_site: "https://genpy-cli.vercel.app"
+  email: "renatocarden@gmail.com"
+
+pinned_repos:
+  - name: "qrfila"
+    description: "SaaS queue management platform for local businesses in Chile"
+    stack: ["FastAPI", "PostgreSQL", "React", "Docker", "Railway"]
+    private: true
+  - name: "genpy"
+    description: "Open source CLI to scaffold production-ready Docker environments"
+    stack: ["Bash", "Docker", "GitHub Actions", "Python"]
+    private: false
+
+stack:
+  backend: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Docker"]
+  frontend: ["React", "TypeScript", "Vite", "Tailwind CSS"]
+  devops: ["GitHub Actions", "CI/CD", "Railway", "Linux", "Bash"]
+  tools: ["Git", "Claude Code", "REST APIs"]
+
+how_i_work:
+  - "PR-based workflow — no direct pushes to main, ever"
+  - "Every project ships with CI/CD from day one"
+  - "AI-assisted development as a velocity multiplier, not a shortcut"
+  - "Standards enforced across repos via how-i-work"
