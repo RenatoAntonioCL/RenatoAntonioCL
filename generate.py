@@ -3,7 +3,8 @@
 
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 import requests
 import yaml
@@ -159,7 +160,7 @@ def generate_readme(config: dict, lang_bars: str) -> str:
     stack = config["stack"]
     hiw = config["how_i_work"]
 
-    timestamp = datetime.now(timezone.utc).strftime("%b %-d, %Y at %H:%M UTC")
+    timestamp = datetime.now(ZoneInfo("America/Santiago")).strftime("%b %-d, %Y at %H:%M CLT")
 
     pinned_sections = "\n\n".join(pinned_block(r, links) for r in pinned)
     stack_md = stack_section(stack)
@@ -186,7 +187,7 @@ def generate_readme(config: dict, lang_bars: str) -> str:
 
 ---
 
-## Top languages (from public repos)
+## Top languages (across all repos)
 
 ```
 {lang_bars}
